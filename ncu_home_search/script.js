@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchHistory.forEach(keyword => {
                 const keywordSpan = document.createElement("span");
                 
-                // 截断长文本 (加分项)
+                // 截断长文本 
                 let displayText = keyword;
                 if (displayText.length > 5) {
                     displayText = displayText.substring(0, 5) + '...';
@@ -92,8 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const randomIndex = Math.floor(Math.random() * RANDOM_KEYWORDS.length);
         return RANDOM_KEYWORDS[randomIndex];
     }
-
-    // --- 事件监听 ---
 
     // 1. 搜索按钮 (左侧图标)
     searchIconLeft.addEventListener("click", () => {
@@ -121,7 +119,7 @@ searchInput.addEventListener("keydown", (event) => { // 改用 keydown 更可靠
     lastSearchButton.addEventListener('click', () => {
         const lastSearchTerm = localStorage.getItem('lastSearchTerm') || '';
         searchInput.value = lastSearchTerm;
-        searchInput.focus(); // 聚焦输入框，方便用户继续编辑或直接搜索
+        searchInput.focus(); // 聚焦输入框，方便用户继续编辑或直接搜索 //AI推荐修改
     });
 
     // 4. 随机关键词按钮 (右侧图标)
@@ -143,3 +141,4 @@ searchInput.addEventListener("keydown", (event) => { // 改用 keydown 更可靠
     setInterval(updateTime, 1000); // 每秒更新一次时间
     renderHistory(); // 页面加载时立即渲染历史记录
 });
+
