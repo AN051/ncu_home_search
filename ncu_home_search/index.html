@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="top-nav">
+        <a href="#">首页</a>
+        <a href="#">新闻</a>
+        <a href="#">地图</a>
+        <a href="#">图片</a>
+    </nav>
+
+    <div class="layout-container">
+
+        <div class="main-content">
+            <!-- 时间和日期显示 -->
+            <div class="time-container">
+                <div id="current-time"></div>
+                <div id="current-date"></div>
+            </div>
+
+            <div class="container">
+                <!-- 搜索框 -->
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon-left"></i>
+                    <textarea id="search-input" placeholder="搜索一下吧" rows="1"></textarea>  <!---多行输入框--->
+                    <div class="search-icons-right">
+                        <i class="fa-solid fa-clock-rotate-left" id="last-search-button" title="上次搜索"></i>
+                        <i class="fa-solid fa-wand-magic-sparkles" id="random-keyword-button" title="随机推荐"></i>
+                    </div>
+                </div>
+
+                <!-- 搜索发现 / 搜索建议 -->
+                <div class="search-results" id="search-results-container">
+                    <h2>搜索发现:</h2>
+                    <div class="keywords" id="keywords-container">
+                        <!-- 搜索历史会动态 -->
+                    </div>
+                    <button id="clear-button">清空所有记录</button>
+                </div>
+            </div>
+        </div>
+
+    </div> 
+
+    <script src="script.js"></script>
+
+        <!-- ... 现有的所有 HTML 内容 ... -->
+    <div class="main-content">
+
+    </div>
+</div>
+
+
+</body>
+</html>

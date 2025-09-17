@@ -1,0 +1,251 @@
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    margin: 0;
+    background-image: url('A.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    color: #333;
+    overflow: hidden; /* 防止内容过多时出现滚动条 */
+}
+
+.layout-container {
+    display: flex;
+    justify-content: flex-end;  /* 内容靠右对齐 */
+    align-items: center;      
+    min-height: 100vh;
+    width: 100%;
+    padding-right: 12vw;      
+}
+
+/* 导航栏 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    right: 20px;
+    padding: 15px;
+    z-index: 10;
+}
+
+.top-nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 1em;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+/* 主内容区  */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 580px; 
+}
+
+/* 时间日期 */
+.time-container {
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    margin-bottom: 20px;
+}
+
+#current-time {
+    font-size: 5em;
+    font-weight: 500;
+    line-height: 1;
+}
+
+#current-date {
+    font-size: 1.5em;
+    font-weight: 300;
+}
+
+/* 主容器 (毛玻璃效果) */    /*AI修改*/
+.container {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 15px;
+}
+
+
+/* 搜索框整体 */
+.search-box {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 18px;          /* 更大的圆角 */
+    padding: 15px 22px;           /* 更大的内边距，让框更高更宽 */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* 添加质感阴影 */
+}
+
+/* 通用图标样式 */
+.search-box i {
+    font-size: 1.5em;             
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.search-box .search-icon-left {
+    margin-right: 18px;          
+}
+
+#search-input {
+    flex-grow: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 1.5em;
+    
+    /* --- 新增/修改的样式 --- */       /*这是AI帮我改的*/
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 继承字体 */
+    resize: none;         /* 禁用右下角的调整大小功能 */
+    overflow-y: hidden;   /* 隐藏默认的滚动条，后面用JS控制 */
+    padding: 0;           /* 移除textarea默认的内边距 */
+    line-height: 1.2;     /* 设置一个合适的行高，防止文字太挤 */
+    white-space: pre-wrap;/* 允许文本换行 */
+    word-break: break-all;/* 允许单词内换行，防止长英文单词溢出 */
+}
+
+
+.search-icons-right {
+    display: flex;
+    gap: 22px;                    /* 增加右侧图标的间距 */
+    margin-left: 18px;
+}
+
+.search-icons-right i:hover {
+    color: #007bff;
+}
+
+/*   搜索建议/历史记录区域                    */
+
+.search-results {
+    margin-top: 10px;
+    text-align: left;
+    padding: 10px;
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.search-results h2 {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    font-weight: 400;
+}
+
+.keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.keywords span {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease;
+}
+
+.keywords span:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#clear-button {
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+}
+
+#clear-button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+
+
+
+    /* =================================== */
+/*          响应式设计 (移动端优化)    (AI修改)     */
+/* =================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. 调整整体布局，使其居中而不是靠右 */
+    .layout-container {
+        justify-content: center; /* 水平居中 */
+        padding-right: 0;        /* 移除右边距 */
+        padding-left: 15px;      /* 增加左右内边距，防止内容贴边 */
+        padding-right: 15px;
+        box-sizing: border-box;  /* 确保内边距不会增加总宽度 */
+    }
+
+    /* 2. 缩小顶部导航的间距和字体 */
+    .top-nav a {
+        margin-left: 10px;
+        font-size: 0.9em;
+    }
+
+    /* 3. 缩小时间和日期的字体大小 */
+    #current-time {
+        font-size: 3.5em; /* 从 5em 缩小 */
+    }
+
+    #current-date {
+        font-size: 1.2em; /* 从 1.5em 缩小 */
+    }
+
+    /* 4. 调整主内容区的宽度 */
+    .main-content {
+        max-width: 100%; /* 允许内容区充满屏幕宽度 */
+    }
+
+    /* 5. 缩小搜索框和内部元素的尺寸 */
+    .search-box {
+        padding: 10px 15px; /* 减小内边距 */
+    }
+
+    .search-box i {
+        font-size: 1.2em; /* 缩小图标 */
+    }
+
+    #search-input {
+        font-size: 1.1em; /* 缩小输入框字体 */
+    }
+
+    .search-box .search-icon-left {
+        margin-right: 12px; /* 减小左图标间距 */
+    }
+
+    .search-icons-right {
+        gap: 15px; /* 减小右侧图标间距 */
+        margin-left: 12px;
+    }
+
+    /* 6. 调整搜索历史区域的字体和间距 */
+    .keywords span {
+        font-size: 0.8em;
+        padding: 4px 10px;
+    }
+
+    #clear-button {
+        font-size: 0.75em;
+    }
+}
+
+}
